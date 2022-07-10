@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.css"> </link>
+<style>
+#frm{
+   width:500px;
+   margin:auto;
+   margin-top:100px;
+ }
+    marquee{
+    margin-top:10px;
+ }
+</style>
+<script>
+ function validateDOB(bday) {
+  var dateString = bday.value;
+  var parts = dateString.split("/"); 
+  var now = new Date();
+  var birthday = new Date(now.getFullYear(),parts[1]-1,parts[0]);
+  var age = now.getFullYear()-parts[2];
+  if (now<birthday) age--;
+  if (age<18) {
+    alert
+    return false
+  }
+  
+  return true;
+}
+
+</script>
+</head>
+<body class="container-fluid">
+<marquee> <h2 class="text-primary">Register here</h2></marquee>
+    <form action ="register" method ="post" class="form card" id="frm">
+             <h2 class="bg-danger text-white card-header"> Registration form </h2> 
+     <table class ="table table-hover">
+     <tr>
+      <td>name</td>
+      <td><input type ="text" name ="username" required></td>
+     </tr>
+     <tr>
+      <td> email </td>
+      <td><input type = "email" name ="email" required></td>
+     </tr>
+      <tr>
+      <td> mobile </td>
+      <td> <input type="text" name="mobile" maxlength="10"  pattern="[0-9]{10}" title="Enter your mobile number" required></td>
+     </tr>
+      <td> DOB </td>   
+      
+        <td> <input type="date" id="dob" name="bday"  required></td>  
+     </tr>
+      <tr>
+      <td> City </td>
+      <td><select name="city">
+           <option value="pune">chennai</option>
+           <option value="mumbai"> mumbai </option>
+           <option value="delhi"> delhi</option>
+           <option value= "chennai"> pune</option>
+            </select></td>
+     </tr>
+     <tr>
+     <td>Gender</td>
+     <td><input type="radio" name="gender" value ="male" required>male</td>
+     <td><input type="radio" name="gender" value ="female" required>female</td>
+     </tr>
+     
+     <tr class="card-footer">
+     <td><button type="submit" class="btn btn-outline-success">Register</button></td>
+     <td><button type="reset" class="btn btn-outline-danger">clear</button></td>
+     
+     </tr>
+     </table>
+    <button class= "btn btn-outline-success display-block"><a href="showdata">show users</a></button>
+    
+    </form>
+ 
+</body>
+</html>
